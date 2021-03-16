@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
+import { RECIPES } from "../shared/recipes";
 
 function RenderRecipe({ recipe }) {
     if (recipe) {
@@ -21,8 +22,24 @@ function RenderRecipe({ recipe }) {
     return <View />;
 }
 
-function RecipeInfo(props) {
-    return <RenderRecipe recipe={props.recipe} />;
+class RecipeInfo extends Component { 
+
+    constructor(props){
+        super(props);
+        this.state = {
+            recipes: RECIPES
+        }
+    }
+
+    static navigationOptions = {
+        title: "Recipe Information"
+    }
+
+    render() {
+        const recipeId = this.props.navigation.getParam("recipeId");
+        const recipe = this.state.recipes.filter(recipe => recipe.id === recipeId)[0];
+        return <RenderRecipe recipe={recipe} />;
+    }
 }
 
 export default RecipeInfo;
