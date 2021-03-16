@@ -8,7 +8,8 @@ function Recipes(props) {
         return (
             <ListItem
                 title={item.name}
-                subtitle={item.description}
+                subtitle={item.directions}
+                onPress={() => props.onPress(item.id)}
                 leftAvatar={{ source: require('./images/crepes.jpg') }}
             />
         );

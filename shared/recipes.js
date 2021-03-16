@@ -2,6 +2,7 @@ export const RECIPES = [
     {
         id: 0,
         name: "Chicken and Rice Soup",
+        featured: false,
         servings: "6",
         image: "/assets/images/chicken-rice-soup.jpg",
         ingredients: "1/3 cup brown rice 4 cups, chicken broth, 2 pieces of ginger, 1 clove garlic, 1 lb. boneless and skinless chicken thighs, 1 tsp salt,  1 cup diced carrots,  1 cup diced celery, 1/2 cup chopped parsley",
@@ -16,6 +17,7 @@ export const RECIPES = [
     {
         id: 1,
         name: "Delicious Potato Salad",
+        featured: false,
         servings: 8,
         image: "/assets/images/delicious-potato-salad.jpg",
         ingredients: "2 lbs potatoes - peeled/diced, 1 1/2 cups mayonnaise, 1 tbsp white vinegar, 1 tbsp yellow mustard, 1 tsp salt, 1/2 tsp black pepper, 1/2 cup onion, diced, 1 cup celery, diced, 4 hard boiled eggs, chopped",
@@ -33,6 +35,7 @@ export const RECIPES = [
         id: 2,
         name: "Egg salad and Tortilla Wrap",
         servings: 1,
+        featured: false,
         image: "/assets/images/egg-salad-tortilla-wrap.jpg",
         ingredients: " For the egg salad: 2 eggs, 2 tbsp mayonnaise, 1/2 tsp mustard, salt and pepper. For the wrap: 1 plum tomatoe, 1 flour tortilla, 2 slices Jack cheese, 1/2 cup shredded or chopped lettuce.",
         directions: [
@@ -52,6 +55,7 @@ export const RECIPES = [
         id: 3,
         name: "Mini Caprese Appetizers",
         servings: 40,
+        featured: false,
         image: "/assets/images/mini-caprese-appetizers.jpg",
         ingredients: "20 cherry or grape tomatoes, halfed, 20 mini bocconcini cheese, cut in half, 40 fresh basil leaves, 1/3 cup Italian/Vinaigrette dressing, balsamic reduction for garnish, 40 toothpicks",
         directions: [
@@ -64,6 +68,7 @@ export const RECIPES = [
         id: 4,
         name: "Stir-Fry Chicken and Veggies",
         servings: 4,
+        featured: false,
         image: "/assets/images/stir-fry-chicken-and-veggies.jpg",
         ingredients: "2 tbsp olive oil, 1 lb  boneless skinless chicken breast, cut into 1/2-inch-thick slices, 2 cups broccoli florets, 1 large zucchini cut into slices, 1 medium bell pepper cut into 1/2-inch-thick slices, 1 medium yellow onion halved and cut into 1/2-inch-thick slices, 3-4 cloves garlic minced or crushed, 1 tbsp Italian seasoning, 1 tsp salt, 1/2 tsp black pepper ",
         directions: [
@@ -75,6 +80,7 @@ export const RECIPES = [
         id: 5,
         name: "Strawberry Breakfast Pastries",
         servings: 6,
+        featured: true,
         image: "/assets/images/strawberry-breakfast-pastries.jpg",
         ingredients: " 1 sheet puff pastry (half of a 17.3-ounce package), thawed, 1/4 cup cream cheese, at room temperature, 1tbsp strawberry jam, 1 1/2 cups sliced stawberries, 1 large egg, Sanding sugar, for topping (optional)",
         directions: [
