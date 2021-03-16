@@ -1,27 +1,42 @@
-import React from 'react';
+import React, { Component} from 'react';
 import { FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
+import { RECIPES } from "../shared/recipes";
 
-function Recipes(props) {
+class Recipes extends Component {
 
-    const renderRecipeItem = ({ item }) => {
-        return (
-            <ListItem
-                title={item.name}
-                subtitle={item.directions}
-                onPress={() => props.onPress(item.id)}
-                leftAvatar={{ source: require('./images/crepes.jpg') }}
-            />
-        );
+    constructor(props) {
+        super(props);
+        this.state = {
+            recipes: RECIPES
+        };
+    }
+
+    static navigationOptions = {
+        title: "Recipes"
     };
 
-    return (
+    render() {
+      const { navigate } = this.props.navigation;
+      const renderRecipeItem = ({ item }) => {
+        return (
+          <ListItem
+            title={item.name}
+            subtitle={item.directions}
+            onPress={() => navigate("RecipeInfo", { recipeId: item.id})}
+            leftAvatar={{ source: require("./images/crepes.jpg") }}
+          />
+        );
+      };
+
+      return (
         <FlatList
-            data={props.recipes}
-            renderItem={renderRecipeItem}
-            keyExtractor={item => item.id.toString()}
+          data={this.state.recipes}
+          renderItem={renderRecipeItem}
+          keyExtractor={(item) => item.id.toString()}
         />
-    );
+      );
+    }
 }
 
 export default Recipes;
