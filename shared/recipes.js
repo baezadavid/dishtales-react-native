@@ -2,7 +2,7 @@ export const RECIPES = [
     {
         id: 0,
         name: "Chicken and Rice Soup",
-        featured: false,
+        featured: true,
         servings: "6",
         image: "/assets/images/chicken-rice-soup.jpg",
         ingredients: "1/3 cup brown rice 4 cups, chicken broth, 2 pieces of ginger, 1 clove garlic, 1 lb. boneless and skinless chicken thighs, 1 tsp salt,  1 cup diced carrots,  1 cup diced celery, 1/2 cup chopped parsley",
@@ -68,7 +68,7 @@ export const RECIPES = [
         id: 4,
         name: "Stir-Fry Chicken and Veggies",
         servings: 4,
-        featured: false,
+        featured: true,
         image: "/assets/images/stir-fry-chicken-and-veggies.jpg",
         ingredients: "2 tbsp olive oil, 1 lb  boneless skinless chicken breast, cut into 1/2-inch-thick slices, 2 cups broccoli florets, 1 large zucchini cut into slices, 1 medium bell pepper cut into 1/2-inch-thick slices, 1 medium yellow onion halved and cut into 1/2-inch-thick slices, 3-4 cloves garlic minced or crushed, 1 tbsp Italian seasoning, 1 tsp salt, 1/2 tsp black pepper ",
         directions: [

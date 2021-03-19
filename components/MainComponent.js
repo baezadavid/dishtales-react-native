@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import Recipes from './RecipesComponent';
 //import { RECIPES } from '../shared/recipes';
 import RecipeInfo from './RecipeInfoComponent';
+import Home from "./HomeComponent";
 import { View, Platform } from 'react-native';
 import { createStackNavigator } from "react-navigation-stack";
+//import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation";
 
 const RecipesNavigator = createStackNavigator(
@@ -25,7 +28,38 @@ const RecipesNavigator = createStackNavigator(
   }
 );
 
-const AppNavigator = createAppContainer(RecipesNavigator);
+const HomeNavigator = createStackNavigator(
+  {
+    Home: { screen: Home }
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#f58742",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "#fff",
+      },
+    },
+  }
+);
+
+const MainNavigator = createBottomTabNavigator(
+  {
+    Home: { screen: HomeNavigator },
+    Recipes: { screen: RecipesNavigator },
+  },
+  {
+    tabBarOptions: {
+      style: {
+        backgroundColor: "#f5e0d3",
+      },
+    },
+  }
+);
+
+const AppNavigator = createAppContainer(MainNavigator);
 
 
 class Main extends Component {
