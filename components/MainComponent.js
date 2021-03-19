@@ -4,6 +4,7 @@ import Recipes from './RecipesComponent';
 import RecipeInfo from './RecipeInfoComponent';
 import Home from "./HomeComponent";
 import About from "./AboutComponent";
+import Contact from "./ContactComponent";
 import { View, Platform } from 'react-native';
 import { createStackNavigator } from "react-navigation-stack";
 //import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -63,16 +64,39 @@ const AboutNavigator = createStackNavigator(
   }
 );
 
+const ContactNavigator = createStackNavigator(
+  {
+    Contact: { screen: Contact },
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#f58742",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "#fff",
+      },
+    },
+  }
+);
+
 const MainNavigator = createBottomTabNavigator(
   {
     Home: { screen: HomeNavigator },
     Recipes: { screen: RecipesNavigator },
-    About: { screen: AboutNavigator }
+    About: { screen: AboutNavigator },
+    Contact: { screen: ContactNavigator },
   },
   {
     tabBarOptions: {
+      activeTintColor: "#e91e63",
+      activeBackgroundColor: "#fff",
       style: {
         backgroundColor: "#f5e0d3",
+      },
+      labelStyle: {
+        fontSize: 18,
       },
     },
   }

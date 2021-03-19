@@ -1,25 +1,24 @@
 import React, { Component } from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, StyleSheet } from "react-native";
 import { Card } from "react-native-elements";
 //import { RECIPES } from "../shared/recipes";
 import { BREAKFASTS } from "../shared/featuredBreakfasts";
 import { LUNCHES } from "../shared/featuredLunches";
 import { DINNERS } from "../shared/featuredDinners";
 
+
 function RenderItem({item}) {
     if (item) {
         return (
-            <Card 
-                featuredTitle = {item.name}
-                image={require('./images/strawberry-breakfast-pastries.jpg')}
-            >
-            <Text
-                style={{margin: 10}}
-            >
-            {item.directions}
-            </Text>
-            </Card>
-        )
+          <Card
+            featuredTitle={item.name}
+            image={require("./images/strawberry-breakfast-pastries.jpg")}
+          >
+            <Text style={{ margin: 10 }}>Servings: {item.servings}</Text>
+            <Text style={{ margin: 10 }}>{item.ingredients}</Text>
+            <Text style={{ margin: 10 }}>{item.directions}</Text>
+          </Card>
+        );
     }
     return <View />
 }
@@ -43,20 +42,48 @@ class Home extends Component {
 
     render() {
         return (
-            <ScrollView>
-                <RenderItem
-                    item={this.state.breakfasts.filter(breakfast => breakfast.featured)[0]}
-                />
-                <RenderItem
-                    item={this.state.lunches.filter(lunch => lunch.featured)[0]}
-                />
-                <RenderItem
-                    item={this.state.dinners.filter(dinner => dinner.featured)[0]}
-                />
-
-            </ScrollView>
+          <ScrollView>
+            <View style={styles.featuredItem}>
+              <Text style={styles.featuredText}>Featured Breakfast</Text>
+            </View>
+            <RenderItem
+              item={
+                this.state.breakfasts.filter(
+                  (breakfast) => breakfast.featured
+                )[0]
+              }
+            />
+            <View style={styles.featuredItem}>
+              <Text style={styles.featuredText}>Featured Lunch</Text>
+            </View>
+            <RenderItem
+              item={this.state.lunches.filter((lunch) => lunch.featured)[0]}
+            />
+            <View style={styles.featuredItem}>
+              <Text style={styles.featuredText}>Featured Dinner</Text>
+            </View>
+            <RenderItem
+              item={this.state.dinners.filter((dinner) => dinner.featured)[0]}
+            />
+          </ScrollView>
         );
     }
 }
+
+const styles = StyleSheet.create({
+  featuredItem: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+    flexDirection: "row",
+    margin: 20,
+    padding: 20,
+    backgroundColor: "#f5e0d3",
+  },
+  featuredText: {
+    fontSize: 20,
+    fontWeight: "400",
+  },
+});
 
 export default Home
