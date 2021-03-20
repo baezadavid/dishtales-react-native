@@ -3,6 +3,7 @@ import Recipes from './RecipesComponent';
 //import { RECIPES } from '../shared/recipes';
 import RecipeInfo from './RecipeInfoComponent';
 import Home from "./HomeComponent";
+import About from "./AboutComponent";
 import { View, Platform } from 'react-native';
 import { createStackNavigator } from "react-navigation-stack";
 //import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -12,7 +13,7 @@ import { createAppContainer } from "react-navigation";
 const RecipesNavigator = createStackNavigator(
   {
     Recipes: { screen: Recipes },
-    RecipeInfo: { screen: RecipeInfo },
+    RecipeInfo: { screen: RecipeInfo }
   },
   {
     initialRouteName: "Recipes",
@@ -45,10 +46,28 @@ const HomeNavigator = createStackNavigator(
   }
 );
 
+const AboutNavigator = createStackNavigator(
+  {
+    About: { screen: About },
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#f58742",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "#fff",
+      },
+    },
+  }
+);
+
 const MainNavigator = createBottomTabNavigator(
   {
     Home: { screen: HomeNavigator },
     Recipes: { screen: RecipesNavigator },
+    About: { screen: AboutNavigator }
   },
   {
     tabBarOptions: {
