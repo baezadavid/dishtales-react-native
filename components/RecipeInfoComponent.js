@@ -6,17 +6,14 @@ import { RECIPES } from "../shared/recipes";
 function RenderRecipe({ recipe }) {
     if (recipe) {
         return (
-            <Card
-                featuredTitle={recipe.name}
-                image={require('./images/tacos.jpg')}
-            >
-                <Text style={{ margin: 10 }}>
-                    {recipe.ingredients}
-                </Text>
-                <Text style={{ margin: 10 }}>
-                    {recipe.directions}
-                </Text>
-            </Card>
+          <Card
+            featuredTitle={recipe.name}
+            image={require("./images/tacos.jpg")}
+          >
+            <Text style={{ margin: 10 }}>Servings: {recipe.servings}</Text>
+            <Text style={{ margin: 10 }}>{recipe.ingredients}</Text>
+            <Text style={{ margin: 10 }}>{recipe.directions}</Text>
+          </Card>
         );
     }
     return <View />;
