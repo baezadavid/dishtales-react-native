@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
 import { Card } from "react-native-elements";
 //import { RECIPES } from "../shared/recipes";
 import { BREAKFASTS } from "../shared/featuredBreakfasts";
 import { LUNCHES } from "../shared/featuredLunches";
 import { DINNERS } from "../shared/featuredDinners";
+import { baseUrl } from "../shared/baseUrl";
 
 
 function RenderItem({item}) {
@@ -12,11 +13,18 @@ function RenderItem({item}) {
         return (
           <Card
             featuredTitle={item.name}
-            image={require("./images/strawberry-breakfast-pastries.jpg")}
+            //image={require("./images/strawberry-breakfast-pastries.jpg")}
+            image={{uri: baseUrl + item.image}}
           >
-            <Text style={{ margin: 10 }}>Servings: {item.servings}</Text>
-            <Text style={{ margin: 10 }}>{item.ingredients}</Text>
-            <Text style={{ margin: 10 }}>{item.directions}</Text>
+            
+            <Text style={{ margin: 10, fontWeight: "bold" }}>Servings: </Text>
+            <Text style={{margin: 10}}>{item.servings}</Text>
+            <Text style={{ margin: 10, fontWeight: "bold" }}>Ingredients:</Text>
+            <Text style={{ margin: 10 }}>
+              {item.ingredients.split(", ").join("\n")}
+            </Text>
+            <Text style={{ margin: 10, fontWeight: "bold" }}>Directions: </Text>
+            <Text style={{margin: 10}}>{item.directions}</Text>
           </Card>
         );
     }
