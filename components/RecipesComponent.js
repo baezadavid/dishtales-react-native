@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { RECIPES } from "../shared/recipes";
@@ -17,25 +17,25 @@ class Recipes extends Component {
     };
 
     render() {
-      const { navigate } = this.props.navigation;
-      const renderRecipeItem = ({ item }) => {
-        return (
-          <ListItem
-            title={item.name}
-            subtitle={item.directions}
-            onPress={() => navigate("RecipeInfo", { recipeId: item.id})}
-            leftAvatar={{ source: require("./images/crepes.jpg") }}
-          />
-        );
-      };
+        const { navigate } = this.props.navigation;
+        const renderRecipeItem = ({ item }) => {
+            return (
+                <ListItem
+                    title={item.name}
+                    subtitle={item.directions}
+                    onPress={() => navigate("RecipeInfo", { recipeId: item.id })}
+                    leftAvatar={{ source: require("./images/crepes.jpg") }}
+                />
+            );
+        };
 
-      return (
-        <FlatList
-          data={this.state.recipes}
-          renderItem={renderRecipeItem}
-          keyExtractor={(item) => item.id.toString()}
-        />
-      );
+        return (
+            <FlatList
+                data={this.state.recipes}
+                renderItem={renderRecipeItem}
+                keyExtractor={(item) => item.id.toString()}
+            />
+        );
     }
 }
 

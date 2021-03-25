@@ -10,7 +10,7 @@ function RenderRecipe(props) {
         return (
           <Card
             featuredTitle={recipe.name}
-            image={require("./images/tacos.jpg")}
+            image={recipe.image}
           >
             <Icon 
                name={props.favorite ? "heart" : "heart-o"}
@@ -21,8 +21,8 @@ function RenderRecipe(props) {
                onPress={() => props.favorite ? console.log("Already set as a favorite") : props.markFavorite()}
             />
             <Text style={{ margin: 10 }}>Servings: {recipe.servings}</Text>
-            <Text style={{ margin: 10 }}>{recipe.ingredients}</Text>
-            <Text style={{ margin: 10 }}>{recipe.directions}</Text>
+                <Text style={{ margin: 10 }}>Ingredients: {"\n"}{recipe.ingredients.split(", ").join("\n")}</Text>
+                <Text style={{ margin: 10 }}>Directions: {recipe.directions}</Text>
           </Card>
         );
     }
