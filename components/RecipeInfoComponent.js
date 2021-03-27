@@ -1,29 +1,46 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import { Card, Icon } from 'react-native-elements';
 import { RECIPES } from "../shared/recipes";
+import { baseUrl } from "../shared/baseUrl";
 
 function RenderRecipe(props) {
 
     const {recipe} = props;
     if (recipe) {
         return (
-          <Card
-            featuredTitle={recipe.name}
-            image={require("./images/tacos.jpg")}
-          >
-            <Icon 
-               name={props.favorite ? "heart" : "heart-o"}
-               type="font-awesome"
-               color="#f50"
-               raised
-               reverse
-               onPress={() => props.favorite ? console.log("Already set as a favorite") : props.markFavorite()}
-            />
-            <Text style={{ margin: 10 }}>Servings: {recipe.servings}</Text>
-            <Text style={{ margin: 10 }}>{recipe.ingredients}</Text>
-            <Text style={{ margin: 10 }}>{recipe.directions}</Text>
-          </Card>
+          <ScrollView>
+            <Card
+              featuredTitle={recipe.name}
+              //image={require("./images/tacos.jpg")}
+              image={{ uri: baseUrl + recipe.image }}
+            >
+              <Icon
+                name={props.favorite ? "heart" : "heart-o"}
+                type="font-awesome"
+                color="#f50"
+                raised
+                reverse
+                onPress={() =>
+                  props.favorite
+                    ? console.log("Already set as a favorite")
+                    : props.markFavorite()
+                }
+              />
+              <Text style={{ margin: 10, fontWeight: "bold" }}>Servings: </Text>
+              <Text style={{ margin: 10 }}>{recipe.servings}</Text>
+              <Text style={{ margin: 10, fontWeight: "bold" }}>
+                Ingredients:
+              </Text>
+              <Text style={{ margin: 10 }}>
+                {recipe.ingredients.split(", ").join("\n")}
+              </Text>
+              <Text style={{ margin: 10, fontWeight: "bold" }}>
+                Directions:
+              </Text>
+              <Text style={{ margin: 10 }}>{recipe.directions}</Text>
+            </Card>
+          </ScrollView>
         );
     }
     return <View />;
